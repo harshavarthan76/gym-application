@@ -1,3 +1,4 @@
+
 <?php  
  $connect = mysqli_connect("localhost", "root", "root765", "maindb");  
  $query = "SELECT * FROM members";  
@@ -12,57 +13,57 @@
            <meta charset="utf-8">
            <meta name="viewport" content="width=device-width, initial-scale=1">  
 
+           <script src="https://kit.fontawesome.com/acf7311159.js" crossorigin="anonymous"></script>
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="preconnect" href="https://fonts.gstatic.com">
            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-          
-           <!-- <link rel="stylesheet" href="css/homepagestyles.css"> -->
+           <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+           <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
+
+           <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+           
 
            <style>
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+
+
+                    .input-field input[type="button"] {
+  background: #fc636b;
+  border: none;
+  color: #fff;
+  padding: 11px 15px;
+  text-transform: uppercase;
+  font-family: "Mukta", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  border-radius: 35px;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  -ms-border-radius: 35px;
+  -o-border-radius: 35px;
 }
 
-.container {
-  background-color: white;
-  /* background-color: #e4e9ee; */
-  width: 22rem;
-  height: 25rem;
 
-  top: 50%;
-  left: 70%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  font-size: larger;
-
-  /*display: flex
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;  */
-}
- body {
- 
-  background-image: url("images/savedimg21.jpg");
+.main {
+  background: url(images/bg.jpg) no-repeat center;
   background-size: cover;
-} 
-
-label, input[type="text"] {
-      margin-bottom:10px;
-
-     }
-                    input[type="button"] {
-                     letter-spacing: 0.08rem;
-                    left: 40%;
-                    border-radius:10%;                   
-                    padding: 0.2rem 1rem 0.3rem 1rem; 
-                     
-                    } 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
 
 .navbar.scrolled {
   background: rgb(222, 192, 222);
@@ -73,12 +74,13 @@ label, input[type="text"] {
 }
 .mainbox label{
      font-size: 1.3rem;
-  /* font-weight:  */
+  
 }
 
 #mainNavbar {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 100;
+  margin: 0 1em 0 2em;
 }
 
 #mainNavbar .nav-link {
@@ -91,12 +93,9 @@ label, input[type="text"] {
 
 #mainNavbar .navbar-brand {
   color: #ea1c2c;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
 }
 
-.far{
-     font-size:4em;
-}
 
            </style>
      </head>
@@ -106,11 +105,11 @@ label, input[type="text"] {
      <body >
           
      
-          
+      <section class="main">
       
-     <nav id="mainNavbar" class="navbar navbar-dark  navbar-expand-md py-2 fixed-top " >
+     <nav id="mainNavbar" class="navbar navbar-dark  navbar-expand-md py-2 " >
           <a href="#" class="navbar-brand px-3">
-          <!-- <i class="fas fa-dumbbell"></i>      -->
+          <i class="fas fa-dumbbell"></i>     
           OXYGEN GYM</a>
                <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -122,6 +121,7 @@ label, input[type="text"] {
                     <li class="nav-item">
                     <a href="homepage.php" class="nav-link">HOME</a>
                     </li>
+                    <li class="nav-item"></li>
                 
                     <li class="nav-item">
                     <a href="#" class="nav-link">ABOUT</a>
@@ -130,32 +130,45 @@ label, input[type="text"] {
                     <li class="nav-item">
                     <a href="#" class="nav-link">CONTACT</a>
                     </li>
+                    
 
                     <li class="nav-item position-absolute end-0 px-5">
                          <button class="btn btn-secondary" onclick="document.location.href='index.php'">ADMIN LOGIN</button>
                     </li>
                
-                    <!-- <li class="nav-item position-absolute end-0 px-5">
-                    <a href="index.php" class="nav-link active" aria-current="page" >ADMIN LOGIN</a>
-                    </li> -->
+                    
                     
                </ul>
           </div>
      </nav>
-          <div class="container" >          
-               <div class="mainbox form-group">
-               <div class="mainbox2 ps-3">      
-                    <label for="myInput">MEMBER LOG IN</label>                          
-                    <input type="text" id="myInput" name="gid" class="sample" placeholder=" Enter gym id" required /> 
-               </div>
-               
-               <div class="mainbox3 text-center">
-                    <input type="button" name="view" value="Log"  class="btn btn-outline-secondary btn-sm view_data" /> 
-               </div>   
-               </div>
-          </div>
-
           
+          
+          
+
+
+
+               <div class="content-w3ls">
+				<div class="text-center icon">
+					<span class="fa fa-dumbbell"></span>
+				</div>
+				<div class="content-bottom">
+					<form action="#" method="post">
+						<div class="field-group">
+							<span class="fa fa-user" aria-hidden="true"></span>
+							<div class="input-field">
+								<input type="text" id="myInput" name="gid" class="sample" placeholder=" Enter gym id" required />
+							</div>
+						</div>
+						
+						<div class="input-field">
+                              <input type="button" name="view" value="Log"  class="btn view_data" /> 
+						 
+						</div>
+					</form>
+				</div>
+			</div>
+
+               </section>    
           
           
 
@@ -181,8 +194,7 @@ label, input[type="text"] {
           <script type="text/javascript" src="ajax.js"></script>
 
          
-    </script>
+          
            
       </body>  
- </html>  
- 
+ </html>

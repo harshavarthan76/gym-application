@@ -163,7 +163,7 @@ if (isset($_POST['getActivity'])){
      
 
       
-        /*$customer_name=$row['customer_name'];*/
+       
       
         echo"<tr>
         <td>$gym_id</td>
