@@ -1,0 +1,12 @@
+body {
+  background-color: #e2ebf0;
+}
+span:before {
+  content: "     ";
+  display: inline-block;
+  width: 32px;
+}
+#clock {
+  font-size: 20px;
+  font-weight: bold;
+}
