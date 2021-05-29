@@ -10,6 +10,14 @@
     <title>Register New Members</title>
 
 	<style>
+	 @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-MediumItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+  }
     body {
   background-color:  #e2ebf0;
 }
@@ -29,45 +37,45 @@
                 			</div> 
                 			
 							
-                				<form class="form-group" action="func.php" method="post">
+                				<form class="form-group" action="../apis/func.php" method="post">
                  					<div class="col-md-4">
 										<label>Gym Id:</label>
-										<input type="text" name="gym_id" class="form-control" required><br>
+										<input type="text" name="gym_id" class="form-control" style="text-transform:uppercase" required><br>
 									</div>
 
 									<div class="row">
 										<div class="col-md-6">
                 							<label>Name:</label>
-											<input type="text" name="name" class="form-control" required><br>
+											<input type="text" name="name" class="form-control" style="text-transform:uppercase" required><br>
 										</div>
 										
 										<div class="col-md-6">
                     						<label>Father name:</label>
-											<input type="text" name="fname" class="form-control"><br>
+											<input type="text" name="fname" class="form-control"    style="text-transform:uppercase"  required><br>
 										</div>
 									</div>
 									
 									<div class="row">
 										<div class="col-md-6">
   											<label>Email:</label>
-											<input type="text" name="email" class="form-control"><br> 
+											<input type="text" name="email" class="form-control"   style="text-transform:uppercase"  required><br> 
 										</div> 
   										
 										<div class="col-md-6">
 											<label>Date of Joining:</label>
-											<input type="date" name="date_of_joining" class="form-control"><br>
+											<input type="date" name="date_of_joining" class="form-control" required><br>
 										</div> 
 									</div> 
 									
 									<div class="row">
 										<div class="col-md-6">
  											<label>Contact</label>
-                    						<input type="text" name="contact" class="form-control"><br> 
+                    						<input type="text" name="contact" class="form-control" required><br> 
 										</div>
-
+<div class="row">
   										<div class="col-md-6">  
 											Package Type:
-                						     <select name="payment_type"  class="form-control">
+                						     <select name="package_type"  class="form-control" required>
                                 <option value="Monthly" selected>Monthly</option>
                                 <option value="3 month">3 month</option>
                                 <option value="6 month">6 month</option>
@@ -76,11 +84,11 @@
 
 							
 	
-								<div class="text-center">                            
-									<input type="submit" class="btn btn-secondary mt-4" name="pat_submit" value="Register">   
+								<div class="col-md-6">                            
+									<input type="submit" class="btn btn-secondary mt-4" name="add_member" value="Register">   
 									
 								</div>
-											
+										</div>	
                 				</form>
                 	</div>
     			 </div>

@@ -7,6 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <style>
+     @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-MediumItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+  }
         body {
   background-color:  #e2ebf0;
    
@@ -17,28 +25,21 @@
 <body>
 	
 
- <div class="container my-2">
-<div class="card">
+ <div class="container my-2" >
+<div class="card" >
      <div class="card-body" >
         
 
-                 <div class="row">
-               <div class="col-md-2 ms-4">
+                 <div class="row" >
+               <div class="col-6 col-md-4">
                             <a href="../entry-pages/admin-panel.php" class="btn btn-secondary ">Go Back</a>
                         </div>
-             <h3 class="col-md-8 text-center">MEMBER DETAILS</h3>
-             
-       <div class="row mt-5 ms-2">   
-      <!-- <div class="col-md-6">
-      <form class="form-group" action="member_search.php" method="post">
-      <input type="text" name="search" class="form-control" placeholder="Enter Gym Id or Name ">
-  </div>
-  <div class="col-md-2">
-  <input type="submit" name="patient_search_submit" class="btn btn-secondary" value="Search"> 
-              </div>       
-              </form>
-            
-   </div> -->
+             <h3 class="col-6 col-md-4">MEMBER DETAILS</h3>
+                     <div class="col-md-3 ml-md-auto">
+                            <a href="../add/reg-newmembers.php" class="btn btn-success ">ADD NEW MEMBER</a>
+                        </div>
+                        </div>
+   </div> 
      <div class="card-body" >
          <div class="card-body">
     <table class="table table-hover table-success table-striped">

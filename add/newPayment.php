@@ -10,6 +10,14 @@
     <title>New Payment</title>
 
 	<style>
+   @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-MediumItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+  }
     body {
   background-color:  #e2ebf0;
 }
@@ -20,31 +28,53 @@
 <div class="container my-3">
 <div class="card">
             			<div class="card-body">
-						<div class="col-md-2">
-                        <a href="../entry-pages/admin-panel.php" class = "btn btn-secondary"> <i class="fas fa-arrow-left"></i> Go Back </a>
-                        
-                        </div>
+						
+                           <a href="../entry-pages/admin-panel.php" class = "btn btn-secondary" style="float: left;"> <i class="fas fa-arrow-left"></i> Go Back </a>
+                     
+                             <a href="../tables/payment.php" class="btn btn-success " style="float: right;">PAYMENTS</a>
+                     
 	    					<div class="text-center">
-                				<h2>New Payment</h2>
-                			</div> 
+                				<h2>New Payment</h2></div>
+                         
+                     
+                		
                 			
-							 <form class="form-group mt-4" action="func.php" method="post">
-                        
-                                <input placeholder="Gym Id or Name" type="text" name= "gym_id" class="form-control " required /> <br>
-                           
-                              <div>
-                                	Package Type:
-                						     <select name="payment_type"  class="form-control">
+						<form class="form-group" action="../apis/func.php" method="post">
+            	<div class="row">
+                 					<div class="col-md-6">
+										<label>Gym Id:</label>
+										<input type="text" name="gym_id" class="form-control"    style="text-transform:uppercase" required><br>
+									</div>
+                  		<div class="col-md-6">  
+		<label>Date of Joining:</label>
+											<input type="date" name="date_of_payment" class="form-control" required><br>
+									
+									</div>
+						
+										
+  								
+								
+</div>
+  											<div class="col-md-6">  
+												Package Type:
+                						     <select name="package_type"  class="form-control" required>
                                 <option value="Monthly" selected>Monthly</option>
                                 <option value="3 month">3 month</option>
                                 <option value="6 month">6 month</option>
                                 <option value="Yearly">Yearly</option>
-                                <input name="date_of_payment" type="date" class="form-control" required />
-</div>
-                        <div class="text-center">
-                        <input type="submit" class="btn btn-primary mt-4" name="pay_submit" value="PAY"></div>
-                    </form>
+                    					</div>
+									
+							<br>
+							<br>
+	
+								<div class="text-center">                            
+									<input type="submit" class="btn btn-info" name="add_payment" value="PAY">   
+									
+								</div>
+											
+                				</form>
                 	</div>
+                  </div>
     			 </div>
 				 </div>
 				 <script type = "text/javascript" >  

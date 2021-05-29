@@ -15,6 +15,14 @@
   <link rel="stylesheet" href="../css/activitypagestyles.css">
 </head>
 <style>
+ @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-MediumItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+  }
   body {
   background-color: #e2ebf0;
 }
@@ -40,10 +48,10 @@
        <div class="row mt-5 ms-2">   
       <div class="col-md-5">
           <form class="form-inline" method="POST" action="../apis/method.php">
-  <input type="text"  class="form-control" name="outtimeId" placeholder="Enter Gym Id " required>
+  <input type="text"  class="form-control" name="outtimeId"   style="text-transform:uppercase" placeholder="Enter Gym Id " required>
   </div>
   <div class="col-md-1">
-              <input type="submit" name="gymId"  class="btn btn-secondary out_time" value="Out-Time"> 
+              <input type="submit" name="gymId"   style="text-transform:uppercase" class="btn btn-success out_time" value="Out-Time"> 
               </div>       
               </form>
             <div class="col-md-5 ">

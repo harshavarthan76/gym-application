@@ -1,9 +1,30 @@
 <?php
 $con=mysqli_connect("localhost","root","root123","maindb");
+?>
+<!DOCTYPE html> 
 
+ <html lang="en" >  
+     <head>  
+           <title>HOME PAGE</title>
+           <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1">  
+
+           <script src="https://kit.fontawesome.com/acf7311159.js" crossorigin="anonymous"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <link rel="preconnect" href="https://fonts.gstatic.com">
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+           <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+           <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" media="all">
+
+           <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+           
+
+
+<?php
 function get_patient_details(){
     global $con;
-    $query="select * from members";
+    $query="select * from members ORDER BY last_payment DESC";
     $result=mysqli_query($con,$query);
     while ($row=mysqli_fetch_array($result)){
         
@@ -25,43 +46,10 @@ function get_patient_details(){
         </tr>";
     }
 }
-// function get_package(){
-//     global $con;
-//     $query="select * from Package";
-//     $result=mysqli_query($con,$query);
-//     while($row=mysqli_fetch_array($result)){
-//         $Package_id=$row ['Package_id'];
-//         $Package_name=$row['Package_name'];
-//         $Amount=$row['Amount'];
-//         echo"<tr>
-//         <td>$Package_id</td>
-//         <td>$Package_name</td>
-//             <td>$Amount</td>
-            
-//         </tr>";
 
-//     }
-// }
-// function get_trainer(){
-//     global $con;
-//     $query="select * from Trainer";
-//     $result=mysqli_query($con,$query);
-//     while($row=mysqli_fetch_array($result)){
-//         $Trainer_id=$row ['Trainer_id'];
-//         $Name=$row['Name'];
-//         $phone=$row['phone'];
-//         echo"<tr>
-//         <td>$Trainer_id</td>
-//         <td>$Name</td>
-//             <td>$phone</td>
-            
-//         </tr>";
-
-//     }
-// }
 function get_payment(){
      global $con;
-    $query="select * from members";
+    $query="select * from members ORDER BY last_payment DESC";
     $result=mysqli_query($con,$query);
     while($row=mysqli_fetch_array($result)){
        $gym_id=$row['gym_id'];
@@ -151,47 +139,13 @@ if(isset($_POST['login_submit'])){
 	$username=$_POST['username'];
 	$password=$_POST['password'];
 	
-	if($password == "pass")
-	{
-     $sql = mysqli_query($con,"SELECT gym_id,last_payment, days_left FROM members ");
-       
-            while ($row = mysqli_fetch_assoc($sql)) 
-{
-    $date_of_payment = date("Y-m-d");
-              
-                   $last_payment = $row["last_payment"];
-                      $gym_id = $row["gym_id"];
- 
-             $date_of_payment= strtotime($date_of_payment);
-        
-          
-            $last_payment = strtotime($last_payment);
-          
-            
-               $day_left = floor(($date_of_payment-$last_payment)/60/60/24);
-            
-               $status = 'PAID';
-                if ($day_left > 30) {
-                  $status = "EXPIRED";
-                }
-         
-         
-            $query="UPDATE members SET days_left= '$day_left', payment_status = '$status' where gym_id = '$gym_id'";
-              $result=mysqli_query($con,$query);
-              }  
-             
-              if ($result) {
-            echo "<script>alert('logged in Successfully') </script>";
+	if($password == "pass"){ ?>
+   <div class="alert alert-success" role="alert">
+      This is a success alert—check it out!
+  </div>
 
-               
-             echo "<script>window.open('../entry-pages/admin-panel.php','_self')</script>";
-            //   }
-             
-          
-            }
-          
-	
-}
+    echo "<script>window.open('../entry-pages/index.php','_self')</script>";
+<?php  }
 	else
     {
         echo "<script>alert('error login')</script>";
@@ -201,7 +155,7 @@ if(isset($_POST['login_submit'])){
 
 
 
-if(isset($_POST['pat_submit']))
+if(isset($_POST['add_member']))
 {
     $gym_id=$_POST['gym_id'];
     $name=$_POST['name'];
@@ -210,7 +164,7 @@ if(isset($_POST['pat_submit']))
     $email=$_POST['email'];
     $date_of_joining= date('Y-m-d', strtotime($_POST['date_of_joining']));
     $contact=$_POST['contact'];
-     $package_type=$_POST['payment_type'];
+     $package_type=$_POST['package_type'];
     $last_payment=$date_of_joining;
     $status= 'PAID';
 
@@ -219,35 +173,26 @@ if(isset($_POST['pat_submit']))
      $day_left= $today->diff($date_of_payment)->format("%d");
     $date_of_payment=date('Y-m-d',strtotime($_POST['date_of_joining']));
 
-    $query="insert into members(gym_id,name,father_name,email,date_of_joining,contact,last_payment,payment_status,package)values('$gym_id','$name','$fname','$email','$date_of_joining','$contact','$last_payment', '$status','$package_type')";
+    $query="insert into members(gym_id,name,father_name,email,date_of_joining,contact,last_payment,
+    payment_status,package)values('$gym_id','$name','$fname','$email','$date_of_joining','$contact','$last_payment', '$status','$package_type')";
      $result=mysqli_query($con,$query);
     if($result)
     {
       echo "<script>alert('Member added.')</script>";
-        echo "<script>window.open('admin-panel.php','_self')</script>";
+        echo "<script>window.open('../tables/member_details.php','_self')</script>";
     }
     else 
     {
         echo "<script>alert('Error! Member not added.')</script>";
+        echo "<script>window.open('../add/reg-newmembers.php','_self')</script>";
+   
     }
     } 
-    // if(isset($_POST['tra_submit']))
-    // {
-    //     $Trainer_id=$_POST['Trainer_id'];
-    //     $Name=$_POST['Name'];
-    //     $phone=$_POST['phone'];
-    //     $query="insert into Trainer(Trainer_id,Name,phone)values('$Trainer_id','$Name','$phone')";
-    //      $result=mysqli_query($con,$query);
-    //     if($result)
-    //     {
-    //       echo "<script>alert('Trainer added.')</script>";
-    //         echo "<script>window.open('admin-panel.php','_self')</script>";
-    //     }
-    //     } 
-        if(isset($_POST['pay_submit']))
+   
+        if(isset($_POST['add_payment']))
         {
          $gym_id=$_POST['gym_id'];
-            $name=$_POST['name'];
+           
           $package_type=$_POST['package_type'];
             $payment_date=$_POST['date_of_payment'];
             $payment_date= mysqli_query($con,"SELECT last_payment from members where gym_id = '$gym_id'");
@@ -268,24 +213,21 @@ if(isset($_POST['pat_submit']))
               $status = 'PAID';
             
              $date_of_payment=date('Y-m-d',strtotime($_POST['date_of_payment']));
-                    //   $last_payment=date('Y-m-d',strtotime($last_payment));
-            //  echo "$date_of_payment";
-          
+                    
             if ($package_type == "Monthly") {
                 $day_left = 30 - $day_left ;
             }
-            else if ($package_type == "3 Month") {
+            else if ($package_type == "3 month") {
                 $day_left = 90 - $day_left ;
             }
-            else if ($package_type == "6 Month") {
+            else if ($package_type == "6 month") {
                 $day_left = 180 - $day_left ;
             }
              else if ($package_type == "Yearly") {
                 $day_left = 365 - $day_left ;
             }
            
-            $query="UPDATE members SET  last_payment= '$date_of_payment', payment_status = '$status' , package ='$package_type'
-             WHERE  gym_id = '$gym_id' or name = '$name' ";
+            $query="UPDATE members SET  last_payment= '$date_of_payment', payment_status = '$status' , package ='$package_type' WHERE  gym_id = '$gym_id' ";
              $result=mysqli_query($con,$query);
             if($result)
             {
@@ -315,9 +257,8 @@ if(isset($_POST['pat_submit']))
             echo "<script>alert('Payment sucessfull. $day_left') </script>";
                 
                
-            echo "<script>window.open('payment.php','_self')</script>";
-          //  header("Location: www.google.com");
-            //   }
+            echo "<script>window.open('../tables/payment.php','_self')</script>";
+         
              
           
             }

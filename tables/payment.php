@@ -2,11 +2,22 @@
 <?php include("../apis/func.php");?>
 <html>
 <head>
+
+  </script>
 	<title>Payment details</title>
     <script src="https://kit.fontawesome.com/acf7311159.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <style>
+   @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-SemiBoldItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+    
+  }
         body {
   background-color: #e2ebf0;
 }
@@ -21,26 +32,18 @@
         
 
                  <div class="row" >
-               <div class="col-md-2 ms-4">
+               <div class="col-6 col-md-4">
                             <a href="../entry-pages/admin-panel.php" class="btn btn-secondary ">Go Back</a>
                         </div>
-             <h3 class="col-md-8 text-center">PAYMENT DETAILS</h3>
-             
-       <div class="row mt-5 ms-2">   
+             <h3 class="col-6 col-md-4">PAYMENT DETAILS</h3>
+                     <div class="col-md-3 ml-md-auto">
+                            <a href="../add/newPayment.php" class="btn btn-success ">ADD NEW PAYMENT</a>
+                        </div>
+                        </div>
+       <!-- <div class="row mt-5 ms-2">    -->
     
 
-    <!-- <div class="contaier-fluid">
-        <div class="row m-0">
-            <div class="col-md-8">
-                <div class="card-body">
-                    <div class="row"> -->
-                         <!-- <div class="col-md-2"> 
-                        <a href="admin-panel.php" class = "btn btn-secondary"> <i class="fas fa-arrow-left"></i> Go Back </a>
-</div>
-                         </div> -->
-                        
-                        <!-- <h3 class="col-md-8 text-center">PAYMENT DETAILS</h3>
-                    </div> --> 
+    
                     <div class="card-body" >
          <div class="card-body">
 

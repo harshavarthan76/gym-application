@@ -2,10 +2,14 @@
 <?php include("../apis/func.php");?>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ADMIN LOGIN</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&family=Raleway&display=swap" rel="stylesheet">
 
   <script src="https://kit.fontawesome.com/acf7311159.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,6 +22,14 @@
 
 
   <style>
+  @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-MediumItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+  }
   .input-field button.btn {
   background: #fc636b;
   border: none;
@@ -107,9 +119,7 @@
                     </li>
                     <li class="nav-item"></li>
                 
-                    <li class="nav-item">
-                    <a href="homepage.php" class="nav-link">MEMBER LOGIN</a>
-                    </li>
+                  
                 
                     <li class="nav-item">
                     <a href="../wk-activity/activity.php" class="nav-link">ACTIVITY LOG</a>
@@ -138,7 +148,7 @@
           <div class="field-group">
             <span class="fa fa-user" aria-hidden="true"></span>
             <div class="input-field">
-              <input name="username" id="text1" type="text" placeholder="Username" required>
+              <input name="username" id="text1" type="text"   style="text-transform:uppercase" placeholder="Username" required>
             </div>
           </div>
           <div class="field-group">

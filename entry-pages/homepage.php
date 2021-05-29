@@ -24,12 +24,18 @@
 	<link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
            
 
-           <style>
+     <style>
+ @font-face {
+    font-family: josefin;
+    src: url(..\fonts\josefin\JosefinSans-MediumItalic.ttf);
+  }
+  
+  * {
+    font-family : josefin;
+  }
 
 
-
-
-                    .input-field input[type="button"] {
+.input-field input[type="button"] {
   background: #fc636b;
   border: none;
   color: #fff;
@@ -156,7 +162,7 @@
 						<div class="field-group">
 							<span class="fa fa-user" aria-hidden="true"></span>
 							<div class="input-field">
-								<input type="text" id="myInput" name="gid" class="sample" placeholder=" Enter gym id" required />
+								<input type="text" id="myInput" name="gid" class="sample"  style="text-transform:uppercase" placeholder=" Enter gym id" required />
 							</div>
 						</div>
 						

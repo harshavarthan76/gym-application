@@ -7,13 +7,13 @@
 	                  'icon': '&#xE7FE;'
 	              	},
 	              	{
-		              'label':'New Payment  ',
+		              'label':'Add New Payment  ',
 		              'url':'../add/newPayment.php',
 		              'icon':'&#xE227;'
 	              	},
 	              
 	          	],
-	          	_main_btn_color:'#4285f4;',
+	          	_main_btn_color:'#f4645f;',
 	          	_child_btn_color:'#f4645f;',
 				
         	});
